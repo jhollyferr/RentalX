@@ -1,8 +1,8 @@
-import { Category } from "../models/Category";
+import { Category } from "../../models/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
@@ -14,9 +14,8 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 
   public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
+    if (!CategoriesRepository.INSTANCE)
       CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
 
     return CategoriesRepository.INSTANCE;
   }
